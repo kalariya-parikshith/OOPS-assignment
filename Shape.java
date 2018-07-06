@@ -1,18 +1,16 @@
 import java.util.Scanner;
 class Shape {
-	private long pvtNum=0;
-	public static long counter=0;
+	private long pvtNum=1;
+	
 	float height,width;
+
 	public Shape(){
-		pvtNum = ++counter;
 	}
 	public Shape(float height){
-		pvtNum = ++counter;
 		this.height = height;
 		this.width = height;
 	}
 	public Shape(float height, float width){
-		pvtNum = ++counter;
 		this.height = height;
 		this.width = width;
 	}
@@ -40,9 +38,6 @@ class Shape {
 			if(side<0) throw new NegativeValueException("Negative values are not accepted");
 		
 			s = new Square(side);
-			s.getClass();
-			System.out.println("Area of a Square is: "+s.getArea());
-			System.out.println("Perimeter of a Square is: "+s.getPerimeter());
 		}catch(NegativeValueException ne){
 			System.out.println(ne);
 		}
@@ -50,10 +45,11 @@ class Shape {
 		try{
 			System.out.println("Enter radius of a Circle");
 			float radius = in.nextFloat();
+			
 			if(radius<0) throw new NegativeValueException("Negative values are not accepted");
+			
 			c = new Circle(radius);
-			System.out.println("Area of a Circle is: "+c.getArea());
-			System.out.println("Perimeter of a Circle is: "+c.getPerimeter());
+			
 		}catch(NegativeValueException ne){
 			System.out.println(ne);
 		}
@@ -71,8 +67,8 @@ class Shape {
 		}
 		Shape ss = new Shape(1,2);
 
-		System.out.println("private number of Shape class"+ss.pvtNum);
-		
+		System.out.println("private number of Shape class "+ss.pvtNum);
+
 		/*Uncomment this to observe the failing of access specifiers
 			System.out.println(c1.pvtNum);
 		*/
